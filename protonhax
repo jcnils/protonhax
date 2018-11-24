@@ -28,7 +28,8 @@ if [[ "$c" == "init" ]]; then
     mkdir -p $phd/$SteamAppId
     printf "%s" "$1" > $phd/$SteamAppId/exe
     printf "%s" "$STEAM_COMPAT_DATA_PATH/pfx" > $phd/$SteamAppId/pfx
-    $(dirname $0)/envsave $phd/$SteamAppId/env "$@"
+    env -0 > $phd/$SteamAppId/env
+    "$@"
     ec=$?
     rm -r $phd/$SteamAppId
     exit $ec

@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
     fclose(fd);
 
     unsigned int envp_count = 0;
-    for (char* ev = env; *ev != 0; ev++) {
+    for (char* ev = env; ev < env + env_len; ev++) {
         envp_count++;
         ev += strlen(ev);
     }

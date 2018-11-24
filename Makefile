@@ -3,9 +3,9 @@
 all: build
 
 clean:
-	rm envsave envload
+	rm envload
 
-build: envsave envload
+build: envload
 
 %: %.c
 	tcc -o $@ $<
