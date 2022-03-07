@@ -26,7 +26,7 @@ shift
 
 if [[ "$c" == "init" ]]; then
     mkdir -p $phd/$SteamAppId
-    printf "%s" "${@: -3:1}" > $phd/$SteamAppId/exe
+    printf "%s\n" "${@}" | grep -m 1 "/proton" > $phd/$SteamAppId/exe
     printf "%s" "$STEAM_COMPAT_DATA_PATH/pfx" > $phd/$SteamAppId/pfx
     env -0 > $phd/$SteamAppId/env
     "$@"
