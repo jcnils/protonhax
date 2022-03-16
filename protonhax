@@ -1,6 +1,6 @@
 #!/bin/sh
 
-phd=/run/user/$UID/protonhax
+phd=${XDG_RUNTIME_DIR:-/run/user/$UID}/protonhax
 
 usage() {
     echo "Usage:"
