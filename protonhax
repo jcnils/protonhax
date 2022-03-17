@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 phd=${XDG_RUNTIME_DIR:-/run/user/$UID}/protonhax
 
