@@ -20,7 +20,6 @@ NOTE: The PATH variable is ignored
 
 ## Installing
 ### Arch Linux
-
 - https://aur.archlinux.org/packages/protonhax-git
 
 ## Contributing
