@@ -40,5 +40,5 @@ Contributions are always welcome! Especially if they are packages for other dist
 
 ## TODO
 
-[] Flatpak version for Steam Flatpak
-[] Packages for other Linux distributions.
+- [ ] Flatpak version for Steam Flatpak
+- [ ] Packages for other Linux distributions.
