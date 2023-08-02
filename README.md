@@ -37,3 +37,8 @@ Try to call `envload` and `protonhax` if a usage guide appears, it means they ar
 
 ## Contributing
 Contributions are always welcome! Especially if they are packages for other distributions.
+
+## TODO
+
+[] Flatpak version for Steam Flatpak
+[] Packages for other Linux distributions.
