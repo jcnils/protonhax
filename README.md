@@ -24,9 +24,11 @@ For it to work, you need to be able to access both `protonhax` and `envload` fro
 
 ### Build it yourself
 
+*Current Makefile uses `tcc`, you can update it to use any c compiler you have (e.g. gcc)*
+
 1. Clone our repo `https://github.com/jcnils/protonhax.git`, or download the source from our [release page](https://github.com/jcnils/protonhax/releases)
 2. Open the directory in a terminal.
-3. Run `make`. It will build the `envload.c` using the `Makfile` into a file called `envload`.
+3. Run `make`. It will build the `envload.c` using the `Makefile` into a file called `envload`.
 4. Copy both `envload` and `protonhax` files to where you want to call them from and give proper permissions, Example `/usr/bin/protonhax` and `usr/bin/envload` with permission `755`.
 
 Try to call `envload` and `protonhax` if a usage guide appears, it means they are working.
