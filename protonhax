@@ -28,7 +28,7 @@ if [[ "$c" == "init" ]]; then
     mkdir -p $phd/$SteamAppId
     printf "%s\n" "${@}" | grep -m 1 "/proton" > $phd/$SteamAppId/exe
     printf "%s" "$STEAM_COMPAT_DATA_PATH/pfx" > $phd/$SteamAppId/pfx
-    env -0 > $phd/$SteamAppId/env
+    declare -px > $phd/$SteamAppId/env
     "$@"
     ec=$?
     rm -r $phd/$SteamAppId
@@ -53,20 +53,22 @@ elif [[ "$c" == "run" ]] || [[ "$c" == "cmd" ]] || [[ "$c" == "exec" ]]; then
     SteamAppId=$1
     shift
 
+    source $phd/$SteamAppId/env
+
     if [[ "$c" == "run" ]]; then
         if [[ $# -lt 1 ]]; then
             usage
             exit 1
         fi
-        $(dirname $0)/envload $phd/$SteamAppId/env "$(cat $phd/$SteamAppId/exe)" run "$@"
+        exec "$(cat $phd/$SteamAppId/exe)" run "$@"
     elif [[ "$c" == "cmd" ]]; then
-        $(dirname $0)/envload $phd/$SteamAppId/env "$(cat $phd/$SteamAppId/exe)" run "$(cat $phd/$SteamAppId/pfx)/drive_c/windows/system32/cmd.exe"
+        exec "$(cat $phd/$SteamAppId/exe)" run "$(cat $phd/$SteamAppId/pfx)/drive_c/windows/system32/cmd.exe"
     elif [[ "$c" == "exec" ]]; then
         if [[ $# -lt 1 ]]; then
             usage
             exit 1
         fi
-        $(dirname $0)/envload $phd/$SteamAppId/env "$@"
+        exec "$@"
     fi
 else
     printf "Unknown command %s\n" "$c"
