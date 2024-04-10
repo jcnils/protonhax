@@ -1,41 +1,51 @@
 # protonhax
+
 Tool to help running other programs (i.e. Cheat Engine) inside Steam's proton.
 
 ## Usage
-In Steam set the launch options for the desired game to `protonhax init %COMMAND%`
+Set the steam game launch options to `protonhax init %COMMAND%`
 
-To list all running appids use\
+On your Steam Library:
+- Right-click the game > Properties > General.
+- Set Launch Options as `protonhax init %COMMAND%`.
+
+Now, you can use your terminal to run the following commands:
+
+- To list all running appids use\
 `protonhax ls`
 
-To run a program with proton use\
+- To run a program with proton use\
 `protonhax run <appid> <path/to/program> [args...]`\
 NOTE: The PATH variable is ignored
 
-To run cmd.exe use\
+- To run cmd.exe use\
 `protonhax cmd <appid>`
 
-To run a program natively with the environment variables that were used to launch the game originally use\
+- To run a program natively with the environment variables that were used to launch the game originally use\
 `protonhax exec <appid> <path/to/program> [args...]`\
 NOTE: The PATH variable is ignored
 
 ## Installing
 
-For it to work, you need to be able to access both `protonhax` and `envload` from the terminal. You can use one of the available packages or build it yourself.
+**protonhax** is currently a single bash script, you just need to add it to your $PATH. 
 
-### Build it yourself
-
-*Current Makefile uses `tcc`, you can update it to use any c compiler you have (e.g. gcc)*
-
-1. Clone our repo `https://github.com/jcnils/protonhax.git`, or download the source from our [release page](https://github.com/jcnils/protonhax/releases)
-2. Open the directory in a terminal.
-3. Run `make`. It will build the `envload.c` using the `Makefile` into a file called `envload`.
-4. Copy both `envload` and `protonhax` files to where you want to call them from and give proper permissions, Example `/usr/bin/protonhax` and `usr/bin/envload` with permission `755`.
-
-Try to call `envload` and `protonhax` if a usage guide appears, it means they are working.
+1. Either clone our repo `https://github.com/jcnils/protonhax.git`, or download the source from our [release page](https://github.com/jcnils/protonhax/releases)
+2. Copy the **protonhax** file to where you preffer and give it permission to execute:
+    - Example of locations `$HOME/.local/bin/protonhax`, `/usr/bin/protonhax`. They need to be on your $PATH
+    - Permission `chmod 755 protonhax`.
 
 ### Arch Linux
 - https://aur.archlinux.org/packages/protonhax
 - https://aur.archlinux.org/packages/protonhax-git/
+
+## Debugging
+
+Open the `protonhax` file and add to the second line
+```sh
+set -x
+exec >/tmp/protonhax.$$.log 2>&1
+```
+It will save protonhax debug log into `/tmp/protonhax.*.log`
 
 ## Contributing
 Contributions are always welcome! Especially if they are packages for other distributions.
@@ -43,4 +53,5 @@ Contributions are always welcome! Especially if they are packages for other dist
 ## TODO
 
 - [ ] Flatpak version for Steam Flatpak
+- [ ] Nix Packages
 - [ ] Packages for other Linux distributions.
