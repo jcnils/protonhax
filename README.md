@@ -50,6 +50,13 @@ It will save protonhax debug log into `/tmp/protonhax.*.log`
 ## Contributing
 Contributions are always welcome! Especially if they are packages for other distributions.
 
+## Running programs BEFORE the game.
+
+Protonhax is not necessary, you can set your launch options to switch paths. Example:
+
+`eval $(echo "protonhax init %command%" | sed "s|path/to/game.exe|path/to/your.exe|")`
+[More](https://github.com/jcnils/protonhax/issues/5#issuecomment-2053773221)
+
 ## TODO
 
 - [ ] Flatpak version for Steam Flatpak
