@@ -1,0 +1,20 @@
+id: com.valvesoftware.Steam.CompatibilityTool.protonhax
+default-branch: stable
+runtime: com.valvesoftware.Steam
+runtime-version: stable
+sdk: org.freedesktop.Sdk//24.08
+build-extension: true
+appstream-compose: false
+separate-locales: false
+build-options:
+  prefix: /app/share/steam/compatibilitytools.d/protonhax
+  strip: true
+
+modules:
+  - name: protonhax
+    buildsystem: simple
+    build-commands:
+        - install -Dm755 protonhax /app/share/steam/compatibilitytools.d/protonhax
+    sources:
+      - type: file
+        path: protonhax

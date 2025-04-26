@@ -96,9 +96,17 @@ Protonhax is not necessary, you can set your launch options to switch paths. Exa
 `eval $(echo "protonhax init %command%" | sed "s|path/to/game.exe|path/to/your.exe|")`
 [More](https://github.com/jcnils/protonhax/issues/5#issuecomment-2053773221)
 
+## Flatpak
+
+```
+mkdir -p flatpak
+flatpak-builder --user --install ./flatpak/ com.valvesoftware.Steam.CompatibilityTool.protonhax.yml --force-clean
+```
+
+The script will now live in /app/share/steam/compatibilitytools.d/protonhax/
+
 ## TODO
 
-- [ ] Flatpak version for Steam Flatpak
 - [ ] Nix Packages
 - [ ] Packages for other Linux distributions.
 - [ ] New repo for *protonhax* GUI
